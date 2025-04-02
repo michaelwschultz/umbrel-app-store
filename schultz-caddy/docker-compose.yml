@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  caddy:
+    image: caddy:<version>
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - $PWD/conf:/etc/caddy
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+  app_proxy:
+    environment:
+      # The format here is: <app-id>_<docker-service-name>_1
+      APP_HOST: schultz-caddy_1
+      APP_PORT: 3000
+  server:
+    image: caddy:latest
+    user: "1000:1000"
+    init: true
+
+volumes:
+  caddy_data:
+  caddy_config:

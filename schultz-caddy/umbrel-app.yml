@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: schultz-caddy
+name: Caddy
+tagline: My apps tag line
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "1.0.0"
+port: 4000
+description: >-
+  Nothing to see here.
+developer: Caddy
+website: https://github.com/michaelwschultz/schultz-caddy
+submitter: Michaelwschultz
+submission: https://github.com/michaelwschultz/schultz-caddy
+repo: https://github.com/michaelwschultz/schultz-caddy
+support: https://github.com/michaelwschultz/schultz-caddy/issues
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
