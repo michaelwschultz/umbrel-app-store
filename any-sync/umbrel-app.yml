@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: schultz-anysync
+name: anysync
+tagline: Sync engine for AnyType
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "1.0.0"
+port: 4000
+description: >-
+  AnyType sync engine
+developer: Any
+website: https://github.com/michaelwschultz/any-sync-dockercompose
+submitter: Michaelwschultz
+submission: https://github.com/michaelwschultz/any-sync-dockercompose
+repo: https://github.com/michaelwschultz/any-sync-dockercompose
+support: https://github.com/michaelwschultz/any-sync-dockercompose/issues
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Initial Release
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
