@@ -1,3 +1,5 @@
+version: "3.7"
+
 services:
   app_proxy:
     environment:
@@ -5,7 +7,6 @@ services:
       APP_PORT: 8080
 
   web:
-    container_name: glance
     image: glanceapp/glance:latest
     restart: unless-stopped
     environment:
@@ -14,9 +15,9 @@ services:
     init: true
     env_file: .env
     volumes:
-      # - $PWD/conf:/etc/glance/app/config
-      # - $PWD/site:/srv
       - ${APP_DATA_DIR}/data:/config
       - ${APP_DATA_DIR}/data:/assets
       - glance_data:/data
       - glance_config:/config
+    ports:
+      - 8080:8080/tcp
