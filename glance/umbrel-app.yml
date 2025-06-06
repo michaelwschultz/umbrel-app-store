@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: glance
+name: Glance
+tagline: My apps tag line
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "1.0.0"
+port: 8080
+description: >-
+  Nothing to see here.
+developer: Glance
+website: https://github.com/michaelwschultz/glance
+submitter: Michaelwschultz
+submission: https://github.com/michaelwschultz/glance
+repo: https://github.com/michaelwschultz/glance
+support: https://github.com/michaelwschultz/glance/issues
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

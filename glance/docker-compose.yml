@@ -1,0 +1,32 @@
+version: "1.0"
+
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance
+    restart: unless-stopped
+    # cap_add:
+    #   - NET_ADMIN
+    ports:
+      - "8080:8080"
+    env_file: .env
+    volumes:
+      # - $PWD/conf:/etc/glance/app/config
+      # - $PWD/site:/srv
+      - ./config:/app/config
+      - ./assets:/app/assets
+      - glance_data:/data
+      - glance_config:/config
+  app_proxy:
+    environment:
+      # The format here is: <app-id>_<docker-service-name>_1
+      APP_HOST: schultz_glance_1
+      APP_PORT: 8080
+  server:
+    image: glanceapp/glance:latest
+    user: "1000:1000"
+    init: true
+
+volumes:
+  glance_data:
+  glance_config:
