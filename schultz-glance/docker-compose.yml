@@ -1,5 +1,3 @@
-version: "1.0"
-
 services:
   glance:
     container_name: glance
