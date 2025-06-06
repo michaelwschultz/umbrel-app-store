@@ -20,7 +20,7 @@ services:
   app_proxy:
     environment:
       # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: schultz_glance_1
+      APP_HOST: schultz-glance_glance_1
       APP_PORT: 8080
   server:
     image: glanceapp/glance:latest
