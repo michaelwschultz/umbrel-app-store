@@ -3,10 +3,10 @@ version: "3.9"
 services:
   app_proxy:
     environment:
-      APP_HOST: schultz-glance_glance_1
+      APP_HOST: schultz-glance_server_1
       APP_PORT: 2929
 
-  glance:
+  server:
     container_name: glance
     image: glanceapp/glance
     restart: unless-stopped
@@ -17,3 +17,5 @@ services:
       # - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - 2929:2929
+    user: "1000:1000"
+    init: true
