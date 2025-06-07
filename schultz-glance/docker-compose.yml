@@ -4,7 +4,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: schultz-glance_glance_1
-      APP_PORT: 8080
+      APP_PORT: 2929
 
   glance:
     container_name: glance
@@ -16,4 +16,4 @@ services:
       # Optionally, also mount docker socket if you want to use the docker containers widget
       # - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
-      - 8080:8080
+      - 2929:2929
