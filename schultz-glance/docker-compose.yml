@@ -1,12 +1,10 @@
-version: "3.9"
-
 services:
   app_proxy:
     environment:
       APP_HOST: schultz-glance_server_1
-      APP_PORT: 8080
+      APP_PORT: 2929
 
-  server:
+  glance:
     container_name: glance
     image: glanceapp/glance
     restart: unless-stopped
@@ -15,11 +13,5 @@ services:
       - ./assets:/app/assets
       # Optionally, also mount docker socket if you want to use the docker containers widget
       # - /var/run/docker.sock:/var/run/docker.sock:ro
-    ports:
-      - 2929:8080
-    user: "1000:1000"
-    init: true
-  
-  volumes:
-    config_data:
-    assets_data:
+    env_file: .env
+    ports: [2929:8080] # port internal app to 2929
