@@ -1,0 +1,49 @@
+- name: Search
+  width: slim
+  center-vertically: true
+  columns:
+    - size: full
+      widgets:
+        - type: search
+          autofocus: true
+
+        - type: bookmarks
+          groups:
+            - title: General
+              links:
+                - title: Gmail
+                  url: https://mail.google.com/mail/u/0/
+                - title: Amazon
+                  url: https://www.amazon.com/
+                - title: Github
+                  url: https://github.com/
+            - title: Entertainment
+              links:
+                - title: YouTube
+                  url: https://www.youtube.com/
+                - title: Prime Video
+                  url: https://www.primevideo.com/
+                - title: Disney+
+                  url: https://www.disneyplus.com/
+            - title: Social
+              links:
+                - title: Reddit
+                  url: https://www.reddit.com/
+                - title: Twitter
+                  url: https://twitter.com/
+                - title: Instagram
+                  url: https://www.instagram.com/
+
+        - type: monitor
+          cache: 1m
+          title: Services
+          sites:
+            - title: Umbrel
+              url: https://schultz.co
+              icon: si:umbrel
+            - title: Jellyfin
+              url: https://watch.schultz.co
+              icon: si:jellyfin
+            - title: Immich
+              url: https://photos.schultz.co
+              icon: si:immich

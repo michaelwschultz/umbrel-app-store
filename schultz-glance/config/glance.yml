@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/330a9efd4dd2d6c87ef43dd78e33686d2661609f/schema.json
+
 server:
   assets-path: /app/assets
 
@@ -5,8 +7,13 @@ theme:
   # Note: assets are cached by the browser, changes to the CSS file
   # will not be reflected until the browser cache is cleared (Ctrl+F5)
   custom-css-file: /assets/user.css
+  background-color: 186 21 20
+  contrast-multiplier: 1.2
+  primary-color: 97 13 80
 
 pages:
   # It's not necessary to create a new file for each page and include it, you can simply
   # put its contents here, though multiple pages are easier to manage when separated
   - $include: home.yml
+  - $include: finance.yml
+  - $include: search.yml

@@ -1,11 +1,11 @@
 - name: Home
-  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
-  # hide-desktop-navigation: true
+  width: wide
   columns:
     - size: small
       widgets:
-        - type: calendar
-          first-day-of-week: monday
+        # - type: calendar
+        #   first-day-of-week: monday
+        - type: to-do
 
         - type: rss
           limit: 10
@@ -14,39 +14,25 @@
           feeds:
             - url: https://selfh.st/rss/
               title: selfh.st
-            - url: https://ciechanow.ski/atom.xml
-            - url: https://www.joshwcomeau.com/rss.xml
-              title: Josh Comeau
-            - url: https://samwho.dev/rss.xml
-            - url: https://ishadeed.com/feed.xml
-              title: Ahmad Shadeed
+            - url: https://www.localfirst.fm/feed.xml
+              title: Local First Podcast
+            - url: https://www.strongtowns.org/journal?format=rss
+              title: Strong Towns
 
         - type: twitch-channels
           channels:
-            - theprimeagen
-            - j_blow
-            - piratesoftware
-            - cohhcarnage
-            - christitustech
-            - EJ_SA
+            - luketns
+            - ratracestudio
+            - idigg
 
     - size: full
       widgets:
+        - type: search
+          autofocus: true
+
         - type: group
           widgets:
             - type: hacker-news
-            - type: lobsters
-
-        - type: videos
-          channels:
-            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
-            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
-            - UCsBjURrPoezykLs9EqgamOA # Fireship
-            - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
-            - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
-
-        - type: group
-          widgets:
             - type: reddit
               subreddit: technology
               show-thumbnails: true
@@ -54,35 +40,82 @@
               subreddit: selfhosted
               show-thumbnails: true
 
+        - type: videos
+          style: vertical-cards
+          channels:
+            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+            - UCsBjURrPoezykLs9EqgamOA # Fireship
+            - UChlWRaent5XzqVW0DwFD3Uw # NoLabCoatRequired
+            - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
+            - UCkVfrGwV-iG9bSsgCbrNPxQ # Better Stack
+            - UCjtUS7-SZTi6pXjUbzGHQCg # Undecided
+            - UCbRP3c757lWg9M-U7TyEkXA # Theo
+            - UCehBVAPy-bxmnbNARF-_tvA # More Perfect Union
+
+        - type: custom-api
+          title: NASA - APOD
+          cache: 1d
+          url: https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+          headers:
+            Accept: application/json
+          template: |
+            <ul class="list list-gap-10">
+              <li><p class="size-h4 color-paragraph">{{ .JSON.String "title" }}</p></li>
+              <li><img class="apod" src={{ .JSON.String "url" }} /></li>
+              <li><p class="size-h6 color-paragraph text-truncate-3-lines">{{ .JSON.String "explanation" }}</p></li>
+            </ul>
+
     - size: small
       widgets:
         - type: weather
-          location: London, United Kingdom
-          units: metric # alternatively "imperial"
+          cache: 1h
+          location: Newark, California, United States
+          units: imperial # alternatively "imperial"
           hour-format: 12h # alternatively "24h"
-          # Optionally hide the location from being displayed in the widget
-          # hide-location: true
+        # Optionally hide the location from being displayed in the widget
+        # hide-location: true
 
-        - type: markets
-          markets:
-            - symbol: SPY
-              name: S&P 500
-            - symbol: BTC-USD
-              name: Bitcoin
-            - symbol: NVDA
-              name: NVIDIA
-            - symbol: AAPL
-              name: Apple
-            - symbol: MSFT
-              name: Microsoft
+        - type: custom-api
+          title: GitHub Repos
+          url: https://api.github.com/user/repos
+          limit: 5
+          cache: 30m
+          parameters:
+            affiliation: owner
+            sort: updated
+            visibility: all
+          headers:
+            Authorization: Bearer ${GITHUB_TOKEN}
+            Accept: application/vnd.github.v3+json
+            User-Agent: Glance-Dashboard
+          template: |
+            <div class="github-repos">
+              <ul class="list list-gap-14 collapsible-container" data-collapse-after="5">
+                {{ range .JSON.Array "" }}
+                  <li>
+                    <a class="size-h3 color-primary" href="{{ .String "html_url" }}">{{ .String "full_name" }}</a>
+                    <h3><a href="" target="_blank"></a></h3>
+                    <p>{{ .String "description" }}</p>
+                    <ul class="list-horizontal-text device-info">
+                      <li data-popover-type="html"><div data-popover-html="">Last Update</div>{{ formatTime "DateOnly" ( parseTime "RFC3339" (.String "updated_at") ) }}</li>
+                      <li data-popover-type="html"><div data-popover-html="">Visibility</div>{{ .String "visibility" }}</li>
+                      <li data-popover-type="html"><div data-popover-html="">Stars</div>{{ .Int "stargazers_count" }}✩</li>
+                      {{ if .String "language" }}
+                      <li data-popover-type="html"><div data-popover-html="">Language</div>{{ .String "language" }}</li>
+                      {{ end }}
+                    </ul>
+                  </li>
+                {{ end }}
+              </ul>
+            </div>
 
         - type: releases
           cache: 1d
           # Without authentication the Github API allows for up to 60 requests per hour. You can create a
           # read-only token from your Github account settings and use it here to increase the limit.
-          # token: ...
+          token: ${GITHUB_TOKEN}
           repositories:
             - glanceapp/glance
-            - go-gitea/gitea
+            - getumbrel/umbrel
             - immich-app/immich
             - syncthing/syncthing
