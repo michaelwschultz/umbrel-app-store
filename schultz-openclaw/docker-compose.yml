@@ -18,9 +18,12 @@ services:
         "lan",
         "--port",
         "18789",
-        "--allow-unconfigured",
+        "--mode",
+        "cloud",
         "--token",
         "open",
+        "--dangerously-allow-unpaired",
+        "--allow-unconfigured",
       ]
     environment:
       # Pass Umbrel's app password as the gateway token
