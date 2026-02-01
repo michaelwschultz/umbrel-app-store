@@ -5,21 +5,14 @@ services:
     environment:
       ######### store id-app _ service _ 1
       APP_HOST: schultz-openclaw_gateway_1
-      APP_PORT: 19001
+      APP_PORT: 18789
       PROXY_AUTH_ADD: "false"
 
   gateway:
     image: ghcr.io/phioranex/openclaw-docker:latest@sha256:29fec5f6ddd935a5f4b9ea75bb0e2807e90f67616c2723c3fb09ccfffebb9c24
     # entrypoint: /data/entrypoint.sh — don't think I need this
     command:
-      [
-        "gateway",
-        "--bind",
-        "0.0.0.0",
-        "--port",
-        "19001",
-        "--allow-unconfigured",
-      ]
+      ["gateway", "--bind", "lan", "--port", "18789", "--allow-unconfigured"]
     environment:
       # Pass Umbrel's app password as the gateway token
       # Users can copy this from Umbrel UI to authenticate in Control UI
@@ -39,7 +32,7 @@ services:
     # Use init for proper signal handling (PID 1 zombie reaping)
     init: true
     ports:
-      - 19001:19001
+      - 18789:18789
     # Healthcheck disabled for Umbrel:
     # - Umbrel's app_proxy service handles health monitoring
     # - Docker healthchecks can cause lock conflicts with gateway lock files
