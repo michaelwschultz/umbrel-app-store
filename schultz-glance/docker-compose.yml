@@ -1,13 +1,20 @@
 services:
+  app_proxy:
+    environment:
+      APP_HOST: glance_glance_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+    image: ghcr.io/umbrel-community/app-proxy:v1.2.0@sha256:c3b081dabf4f952e5d213cc8311c9a3e0580ea6f3b1899871b9f42b44e9c4c9b
+    restart: on-failure
+
   glance:
     container_name: glance
     image: glanceapp/glance:latest
     restart: unless-stopped
     volumes:
-      - ./config:/app/config
-      - ./assets:/app/assets
+      - ${APP_DATA_DIR}/config:/app/config
+      - ${APP_DATA_DIR}/assets:/app/assets
       # Optionally, also mount docker socket if you want to use the docker containers widget
       # - /var/run/docker.sock:/var/run/docker.sock:ro
-    env_file: .env
-    ports: 
-      - 8080:8080
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
