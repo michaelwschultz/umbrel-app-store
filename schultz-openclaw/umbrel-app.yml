@@ -24,3 +24,5 @@ dependencies: []
 path: "/?token=${APP_PASSWORD}"
 defaultUsername: ""
 defaultPassword: ""
+exports:
+  - APP_PASSWORD
