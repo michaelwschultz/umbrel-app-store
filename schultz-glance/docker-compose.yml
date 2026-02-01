@@ -3,12 +3,11 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: glance_web_1
+      APP_HOST: schultz-glance_web_1
       APP_PORT: 8080
       PROXY_AUTH_ADD: "false"
 
   web:
-    container_name: glance
     image: glanceapp/glance:v0.8.4-arm64@sha256:5dcc325b7b4c190415d5247e2a9409bb3ffcb0e23264dab492bbc5729d7bfce0
     restart: unless-stopped
     user: "1000:1000"
