@@ -10,6 +10,7 @@ services:
 
   gateway:
     image: ghcr.io/phioranex/openclaw-docker:latest@sha256:29fec5f6ddd935a5f4b9ea75bb0e2807e90f67616c2723c3fb09ccfffebb9c24
+    #entrypoint: /data/entrypoint.sh
     command: ["gateway", "--port", "19001", "--allow-unconfigured"]
     environment:
       # Pass Umbrel's app password as the gateway token
