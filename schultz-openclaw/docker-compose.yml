@@ -3,6 +3,7 @@ version: "3.7"
 services:
   app_proxy:
     environment:
+      ######### store id-app _ service _ 1
       APP_HOST: schultz-openclaw_gateway_1
       APP_PORT: 19001
       PROXY_AUTH_ADD: "false"
@@ -10,6 +11,7 @@ services:
   gateway:
     image: ghcr.io/phioranex/openclaw-docker:latest@sha256:29fec5f6ddd935a5f4b9ea75bb0e2807e90f67616c2723c3fb09ccfffebb9c24
     user: "1000:1000"
+    command: ["openclaw", "gateway", "--port", "19001"]
     environment:
       # Pass Umbrel's app password as the gateway token
       # Users can copy this from Umbrel UI to authenticate in Control UI
