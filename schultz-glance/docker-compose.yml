@@ -1,12 +1,11 @@
 services:
   app_proxy:
     environment:
-      APP_HOST: glance_glance_1
+      APP_HOST: glanceapp_web_1
       APP_PORT: 8080
       PROXY_AUTH_ADD: "false"
 
-  glance:
-    container_name: glance
+  web:
     image: glanceapp/glance
     restart: unless-stopped
     volumes:
