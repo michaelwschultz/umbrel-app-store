@@ -1,0 +1,26 @@
+manifestVersion: 1
+id: schultz-openclaw
+name: OpenClaw
+tagline: AI Assistant
+icon: https://svgur.com/i/mvA.svg
+category: Development
+version: "0.0.1"
+port: 3838
+description: >-
+  Nothing to see here.
+developer: OpenClaw
+website: https://openclaw.ai
+submitter: Michaelwschultz
+submission: https://openclaw.ai
+repo: https://openclaw.ai
+support: https://openclaw.ai
+gallery:
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
