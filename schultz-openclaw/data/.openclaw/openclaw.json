@@ -1,0 +1,12 @@
+{
+  gateway: {
+    controlUi: {
+      allowInsecureAuth: true
+    },
+    bind: "tailnet",
+    auth: {
+      mode: "token",
+      token: "open"
+    },
+  },
+}

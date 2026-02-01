@@ -18,11 +18,8 @@ services:
         "lan",
         "--port",
         "18789",
-        "--mode",
-        "cloud",
         "--token",
         "open",
-        "--dangerously-allow-unpaired",
         "--allow-unconfigured",
       ]
     environment:
