@@ -21,6 +21,6 @@ gallery:
 releaseNotes: >-
   Add what's new in the latest version of your app here.
 dependencies: []
-path: ""
+path: "/?token=${APP_PASSWORD}"
 defaultUsername: ""
 defaultPassword: ""
