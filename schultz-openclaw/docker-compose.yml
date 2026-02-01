@@ -8,7 +8,7 @@ services:
       PROXY_AUTH_ADD: "false"
 
   gateway:
-    image: 1panel/openclaw:2026.1.30@sha256:6f3a5ed40f9f4f06925d54c7063536b2efc261dcf60d2dd3598d1eef2556b0e9
+    image: 1panel/openclaw:latest
     user: "1000:1000"
     environment:
       # Pass Umbrel's app password as the gateway token
@@ -28,6 +28,8 @@ services:
     restart: on-failure
     # Use init for proper signal handling (PID 1 zombie reaping)
     init: true
+    ports:
+      - 18789:18789
     # Healthcheck disabled for Umbrel:
     # - Umbrel's app_proxy service handles health monitoring
     # - Docker healthchecks can cause lock conflicts with gateway lock files
