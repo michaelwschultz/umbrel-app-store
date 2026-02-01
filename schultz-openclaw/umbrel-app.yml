@@ -21,7 +21,7 @@ gallery:
 releaseNotes: >-
   Add what's new in the latest version of your app here.
 dependencies: []
-path: "/?token=${APP_PASSWORD}"
+path: "/?token=open"
 defaultUsername: ""
 defaultPassword: ""
 exports:

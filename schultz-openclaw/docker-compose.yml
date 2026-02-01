@@ -20,12 +20,12 @@ services:
         "18789",
         "--allow-unconfigured",
         "--token",
-        "${APP_PASSWORD}",
+        "open",
       ]
     environment:
       # Pass Umbrel's app password as the gateway token
       # Users can copy this from Umbrel UI to authenticate in Control UI
-      OPENCLAW_GATEWAY_TOKEN: ${APP_PASSWORD}
+      OPENCLAW_GATEWAY_TOKEN: "open"
       # Data directories (must match Dockerfile paths)
       OPENCLAW_STATE_DIR: /data/.openclaw
       OPENCLAW_WORKSPACE_DIR: /data/openclaw
