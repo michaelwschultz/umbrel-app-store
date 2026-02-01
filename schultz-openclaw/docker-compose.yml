@@ -4,7 +4,7 @@ services:
   app_proxy:
     environment:
       APP_HOST: schultz-openclaw_gateway_1
-      APP_PORT: 18789
+      APP_PORT: 19001
       PROXY_AUTH_ADD: "false"
 
   gateway:
@@ -29,7 +29,7 @@ services:
     # Use init for proper signal handling (PID 1 zombie reaping)
     init: true
     ports:
-      - 18789:18789
+      - 19001:19001
     # Healthcheck disabled for Umbrel:
     # - Umbrel's app_proxy service handles health monitoring
     # - Docker healthchecks can cause lock conflicts with gateway lock files
