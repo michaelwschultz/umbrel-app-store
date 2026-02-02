@@ -20,8 +20,6 @@ services:
         "18789",
         "--token",
         "open",
-        "--state",
-        "/data/openclaw",
         "--workspace",
         "/OpenClaw/workspace",
         "--allow-unconfigured",
