@@ -36,7 +36,7 @@ services:
       HOME: /home/node
     volumes:
       # Persistent data directory - all OpenClaw state survives container updates
-      - "/home/umbrel/OpenClaw:/OpenClaw"
+      - "/home/umbrel/umbrel/home/OpenClaw:/OpenClaw"
       # Semi-persistent but will be wiped by OpenClaw uninstall
       - "${APP_DATA_DIR}/data:/data"
     restart: on-failure
