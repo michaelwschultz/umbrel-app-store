@@ -32,7 +32,7 @@ services:
       OPENCLAW_GATEWAY_TOKEN: "open"
       # Data directories (must match Dockerfile paths)
       OPENCLAW_STATE_DIR: /data/openclaw
-      OPENCLAW_WORKSPACE_DIR: /workspace
+      OPENCLAW_WORKSPACE_DIR: /OpenClaw/workspace
       OPENCLAW_LOG_DIR: /data/logs
       # Node environment
       NODE_ENV: production
@@ -40,7 +40,7 @@ services:
       HOME: /home/node
     volumes:
       # Persistent data directory - all OpenClaw state survives container updates
-      - "/home/umbrel/OpenClaw:/OpenClaw/workspace"
+      - "/home/umbrel/OpenClaw:/OpenClaw"
       # Semi-persistent but will be wiped by OpenClaw uninstall
       - "${APP_DATA_DIR}/data:/data"
     restart: on-failure
