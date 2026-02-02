@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.1.29",
-    "lastTouchedAt": "2026-02-02T01:28:08.002Z"
+    "lastTouchedAt": "2026-02-02T06:02:53.493Z"
   },
   "update": {
     "channel": "stable",
@@ -41,6 +41,7 @@
       "model": {
         "primary": "google/gemini-3-flash-preview"
       },
+      "workspace": "/OpenClaw/workspace",
       "memorySearch": {
         "enabled": true,
         "provider": "gemini"
