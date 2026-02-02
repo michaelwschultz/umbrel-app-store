@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.29",
+    "lastTouchedAt": "2026-02-02T01:28:08.002Z"
+  },
+  "update": {
+    "channel": "stable",
+    "checkOnStart": true
+  },
+  "models": {
+    "providers": {
+      "google": {
+        "baseUrl": "https://generativelanguage.googleapis.com/v1beta/",
+        "apiKey": "",
+        "auth": "api-key",
+        "api": "google-generative-ai",
+        "models": [
+          {
+            "id": "gemini-3-flash-preview",
+            "name": "Gemini 3 Flash",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google/gemini-3-flash-preview"
+      },
+      "memorySearch": {
+        "enabled": true,
+        "provider": "gemini"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "tools": {
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "brave",
+        "apiKey": "",
+        "maxResults": 5,
+        "timeoutSeconds": 10,
+        "cacheTtlMinutes": 2
+      },
+      "fetch": {
+        "enabled": true,
+        "timeoutSeconds": 10,
+        "cacheTtlMinutes": 2,
+        "maxRedirects": 3
+      }
+    },
+    "agentToAgent": {
+      "allow": [
+        ""
+      ]
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "web": {
+    "enabled": true
+  },
+  "channels": {
+    "discord": {
+      "enabled": false,
+      "allowBots": false,
+      "groupPolicy": "allowlist",
+      "accounts": {}
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "tailnet",
+    "controlUi": {
+      "enabled": true,
+      "allowInsecureAuth": true
+    },
+    "auth": {
+      "mode": "token",
+      "token": "open",
+      "allowTailscale": true
+    }
+  },
+  "plugins": {
+    "enabled": true,
+    "entries": {
+      "google-gemini-cli-auth": {
+        "enabled": true
+      },
+      "discord": {
+        "enabled": true
+      },
+      "memory-core": {
+        "enabled": true
+      },
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  }
+}

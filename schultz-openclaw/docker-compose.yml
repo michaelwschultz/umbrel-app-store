@@ -28,7 +28,7 @@ services:
       OPENCLAW_GATEWAY_TOKEN: "open"
       # Data directories (must match Dockerfile paths)
       OPENCLAW_STATE_DIR: /data/.openclaw
-      OPENCLAW_WORKSPACE_DIR: /data/openclaw
+      OPENCLAW_WORKSPACE_DIR: /data/.openclaw/workspace
       OPENCLAW_LOG_DIR: /data/logs
       # Node environment
       NODE_ENV: production
