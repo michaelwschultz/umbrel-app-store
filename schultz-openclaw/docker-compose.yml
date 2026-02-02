@@ -20,6 +20,10 @@ services:
         "18789",
         "--token",
         "open",
+        "--state",
+        "/data/openclaw",
+        "--workspace",
+        "/data/openclaw/workspace",
         "--allow-unconfigured",
       ]
     environment:
